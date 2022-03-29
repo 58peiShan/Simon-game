@@ -18,7 +18,7 @@ function playSound(color) {
         audio.play();
     }
 }
-//開始遊戲(鍵盤事件監聽)
+//開始遊戲
 let pressed = false;
 let level = 0;
 $(document).on("keydown", function () {
@@ -31,12 +31,10 @@ $(document).on("keydown", function () {
 //點擊按鈕
 $(".btn").on("click", function () {
     let userChosenColour = $(this).attr("id");
-    //console.log(userChosenColour);
     userClickedPattern.push(userChosenColour);
     animatePress(userChosenColour);
     checkAnswer(userClickedPattern.length - 1);
     //播放與使用者點擊按鈕相符的音效
-    console.log(userClickedPattern.length - 1);
     playSound(userChosenColour);
 });
 
